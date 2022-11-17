@@ -1,3 +1,45 @@
 thead {
   color: #337AB7;
 }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+  .card-medium {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    /* height: 40px; */
+    width: 20%;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-medium-header{
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: sandybrown;
+    color: maroon;
+    /* margin: 0 8px 16px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .button1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
