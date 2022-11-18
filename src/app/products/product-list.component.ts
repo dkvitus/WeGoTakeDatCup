@@ -771,7 +771,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     }
 
     console.log(theTeam + ' is '+selectedPosition+' from '+ theGroup);
-    alert("Selection " + selectedVariable + " : "+theTeam + ' is '+selectedPosition+' from '+ theGroup);
+    //alert("Selection " + selectedVariable + " : "+theTeam + ' is '+selectedPosition+' from '+ theGroup);
     
     switch(selectedVariable){
       case 'A1':
