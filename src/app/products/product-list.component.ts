@@ -28,6 +28,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   teams = [
     {
+      "teamISO": 'AR',
       "teamId": 1,
       "teamCountryId": 1,
       "teamName": "Argentina",
@@ -48,6 +49,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "“the White and Sky Blues” (in Spanish)"
     },
     {
+      "teamISO": "AU",
       "teamId": 2,
       "teamCountryId": 2,
       "teamName": "Australia",
@@ -68,6 +70,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "a hybrid word from Soccer and Kangaroo (a native animal to Australia)"
     },
     {
+      "teamISO": "BE",
       "teamId": 3,
       "teamCountryId": 3,
       "teamName": "Belgium",
@@ -88,6 +91,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'the Red Devils' (in French and Dutch)"
     },
     {
+      "teamISO": "BR",
       "teamId": 4,
       "teamCountryId": 4,
       "teamName": "Brazil",
@@ -108,6 +112,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "Canarinho means 'little canary', and Seleção means The Selection/Team (in Portuguese)"
     },
     {
+      "teamISO": "CM",
       "teamId": 5,
       "teamCountryId": 5,
       "teamName": "Cameroon",
@@ -128,6 +133,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning Indomitable Lions (in French)"
     },
     {
+      "teamISO": "CA",
       "teamId": 6,
       "teamCountryId": 6,
       "teamName": "Canada",
@@ -148,6 +154,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "Canucks is a slang term for Canadians. Also Les Rouges, meaning 'The Reds'"
     },
     {
+      "teamISO": "CR",
       "teamId": 7,
       "teamCountryId": 7,
       "teamName": "Costa Rica",
@@ -168,6 +175,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "Spanish slang for natives of Costa Rica. Also la Tricolor (“the Tricolors” in Spanish), la Roja (“the Reds”)"
     },
     {
+      "teamISO": "HR",
       "teamId": 8,
       "teamCountryId": 8,
       "teamName": "Croatia",
@@ -188,6 +196,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning Fiery boys. Also sometimes Kockasti (The Chequereds)"
     },
     {
+      "teamISO": "DK",
       "teamId": 9,
       "teamCountryId": 9,
       "teamName": "Denmark",
@@ -208,6 +217,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": ""
     },
     {
+      "teamISO": "EC",
       "teamId": 10,
       "teamCountryId": 10,
       "teamName": "Ecuador",
@@ -228,6 +238,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "the Tricolor (in Spanish)"
     },
     {
+      "teamISO": "GB",
       "teamId": 11,
       "teamCountryId": 11,
       "teamName": "England",
@@ -248,6 +259,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": ""
     },
     {
+      "teamISO": "FR",
       "teamId": 12,
       "teamCountryId": 12,
       "teamName": "France",
@@ -268,6 +280,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'the blues' in French"
     },
     {
+      "teamISO": "DE",
       "teamId": 13,
       "teamCountryId": 13,
       "teamName": "Germany",
@@ -288,6 +301,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'The National Team', 'The National Eleven' (in German). Outside of Germany, simply 'Die Mannschaft' (The Team) is commonly used."
     },
     {
+      "teamISO": "GH",
       "teamId": 14,
       "teamCountryId": 14,
       "teamName": "Ghana",
@@ -308,6 +322,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "a reference to the sole black star on Ghana's flag"
     },
     {
+      "teamISO": "IR",
       "teamId": 15,
       "teamCountryId": 15,
       "teamName": "Iran",
@@ -328,6 +343,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning the National Team (in Persian). Also Shirants Perse / Shiran-e Pars (“the Persian Lions” in Persian)."
     },
     {
+      "teamISO": "JP",
       "teamId": 16,
       "teamCountryId": 16,
       "teamName": "Japan",
@@ -348,6 +364,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "also Nihon Daihyo (“Japanese Representatives” in Japanese)"
     },
     {
+      "teamISO": "MX",
       "teamId": 17,
       "teamCountryId": 17,
       "teamName": "Mexico",
@@ -368,6 +385,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "also less commonly uses the alternative nickname of \"Los Aztecas\"."
     },
     {
+      "teamISO": "MA",
       "teamId": 18,
       "teamCountryId": 18,
       "teamName": "Morocco",
@@ -388,6 +406,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "“the Lions of Atlas” (in French), named after the Atlas Mountains"
     },
     {
+      "teamISO": "NL",
       "teamId": 19,
       "teamCountryId": 19,
       "teamName": "Netherlands",
@@ -408,6 +427,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'orange' (in Dutch)"
     },
     {
+      "teamISO": "PL",
       "teamId": 20,
       "teamCountryId": 20,
       "teamName": "Poland",
@@ -428,6 +448,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "White-Reds (in Polish). Also Polskie Orly (“the Polish Eagles” in Polish)"
     },
     {
+      "teamISO": "PT",
       "teamId": 21,
       "teamCountryId": 21,
       "teamName": "Portugal",
@@ -448,6 +469,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "in Portuguese the word \"QUINAS\" is a 5 sided Polyhedron, representing the \"Forts\" (Castles) Conquered from the Moors, in the \"Foundation\" of Portugal in 1143."
     },
     {
+      "teamISO": "QA",
       "teamId": 22,
       "teamCountryId": 22,
       "teamName": "Qatar",
@@ -468,6 +490,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "“the Crimsons” in Arabic"
     },
     {
+      "teamISO": "SA",
       "teamId": 23,
       "teamCountryId": 23,
       "teamName": "Saudi Arabia",
@@ -488,6 +511,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "“the Green Hawks/Falcons” (in Arabic). Also Ouilad Al Sahraa (“the Sons of the Desert” in Arabic)"
     },
     {
+      "teamISO": "SN",
       "teamId": 24,
       "teamCountryId": 24,
       "teamName": "Senegal",
@@ -508,6 +532,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "The Lions of Teranga / the Lions of Hospitality (in French). “Teranga” originates from the Wolof language."
     },
     {
+      "teamISO": "RS",
       "teamId": 25,
       "teamCountryId": 25,
       "teamName": "Serbia",
@@ -528,6 +553,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "the blue, or Orlovi (“the eagles” in Serbian)"
     },
     {
+      "teamISO": "KR",
       "teamId": 26,
       "teamCountryId": 26,
       "teamName": "South Korea",
@@ -548,6 +574,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "also the Red Devils. The Taeguk symbol of two hands clasping is in the middle of the Korean flag."
     },
     {
+      "teamISO": "ES",
       "teamId": 27,
       "teamCountryId": 27,
       "teamName": "Spain",
@@ -568,6 +595,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'The Red Fury'. Also la Seleccion (“the Selection” in Spanish)."
     },
     {
+      "teamISO": "CH",
       "teamId": 28,
       "teamCountryId": 28,
       "teamName": "Switzerland",
@@ -588,6 +616,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "meaning 'The Nats' – short for Nationals"
     },
     {
+      "teamISO": "TN",
       "teamId": 29,
       "teamCountryId": 29,
       "teamName": "Tunisia",
@@ -608,6 +637,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "The Eagles of Carthage (in French)"
     },
     {
+      "teamISO": "UY",
       "teamId": 30,
       "teamCountryId": 30,
       "teamName": "Uruguay",
@@ -628,6 +658,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "The Charrúas are the indigenous people of present-day Uruguay. Another nickname sometimes used is La Celeste Olímpica (The Olympic Sky Blue)"
     },
     {
+      "teamISO": "US",
       "teamId": 31,
       "teamCountryId": 31,
       "teamName": "USA",
@@ -648,6 +679,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       "teamNotes": "Other names that are used are Team USA and The Yanks. There does not appear to be an official name."
     },
     {
+      "teamISO": "GB-WLS",
       "teamId": 32,
       "teamCountryId": 32,
       "teamName": "Wales",

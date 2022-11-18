@@ -81,11 +81,12 @@
     <div class="card-body">
       <div *ngFor="let num of [1,2,3,4]">          
         <div *ngFor="let team of teams">
+          
           <div *ngIf="team.teamGroupID==group.groupID">
-              <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num)" value="{{team.teamName}}">
+              <button *ngIf="num == team.groupPosition" class="button1 " id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num)" value="{{team.teamName}}">
                 
-                {{team.teamName}}
-                
+                <span class="fi fi-{{team.teamISO | lowercase}}"></span>
+                {{team.teamName}}                
                 
               </button>
           </div>
@@ -148,6 +149,7 @@
               <div>
                 <button (click)="round16Selected(A1,'Match 49')">
                   <input type="text" placeholder="Winner A - A1" name="A1" disabled [(ngModel)]="A1">
+                
                 </button><br>
                 <button (click)="round16Selected(B2,'Match 49')">
                   <input type="text" name="B2" placeholder="RunnerUp B - B2" disabled [(ngModel)]="B2">
