@@ -2,7 +2,8 @@
   <div class='card-header'>
     {{pageTitle}}
   </div>
-  <div class='card-body'>
+
+<!--   <div class='card-body'>
     <div *ngIf='products.length<0' class='row'>
       <div class='col-md-2'>Filter by:</div>
       <div class='col-md-4'>
@@ -69,7 +70,7 @@
   <div *ngIf='errorMessage'
      class='alert alert-danger'>
   Error: {{ errorMessage }}
-</div>
+</div> -->
 <hr>
 <div class="card-container">
   <div *ngFor="let group of groups" class="card">
@@ -81,7 +82,7 @@
       <div *ngFor="let num of [1,2,3,4]">          
         <div *ngFor="let team of teams">
           <div *ngIf="team.teamGroupID==group.groupID">
-              <button *ngIf="num == team.groupPosition" class="button1" (click)="teamSelected(team.teamName, group.groupName)" value="{{team.teamName}}">
+              <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num)" value="{{team.teamName}}">
                 
                 {{team.teamName}}
                 
@@ -95,157 +96,185 @@
 </div>
 
 </div>
-<div class="card">
-  <div class="card-header">
-    Action 1: Select group winners
-  </div>
-  <div class="card-body">
-    <button class="btn btn-success"> Select Group Winners</button>
-    Click the green button then select the group winners.
-  </div>
+<!--
+  Actions 1 and 2
+  Selecting group winners and 2nd place
+-->
+<div class="card-container">
 
+  <div class="card-medium">
+    <div class="card-header">
+      Action 1: 
+    </div>
+    <div class="card-body">
+      <button class="btn btn-success" (click)="selectGroupWinners()"> Select Group Winners</button>
+      <p>
+        Click the green button then select the group winners.
+      </p>
+    </div>
+
+  </div>
+  <div class="card-medium">
+    <div class="card-header">
+      Action 2: 
+    </div>
+    <div class="card-body">
+      <button class="btn btn-warning" (click)="selectGroupRunnersUp()"> Select Group Runners Up</button>
+      <p>
+        Click the yellow button then select the group runners up.
+      </p>
+    </div>
+
+  </div>
 </div>
-<div class="card">
-  <div class="card-header">
-    Action 2: Select group runners up
-  </div>
-  <div class="card-body">
-    <button class="btn btn-warning"> Select Group Runners Up</button>
-    Click the yellow button then select the group runners up.
-  </div>
+<!--
+  Round of 16
+-->
+<div class="card-container">
 
+  <div class="card">
+    <div class="card-header">
+      Round of 16
+    </div>
+    <div class="card-body">
+      <table >
+        <tr>
+          <td>
+            <div class="card">
+              <span>Match #49</span> 
+              <div>
+                <button (click)="round16Selected(A1,'Match 49')">
+                  <input type="text" placeholder="Winner A - A1" name="A1" disabled [(ngModel)]="A1">
+                </button><br>
+                <button (click)="round16Selected(B2,'Match 49')">
+                  <input type="text" name="B2" placeholder="RunnerUp B - B2" disabled [(ngModel)]="B2">
+                </button> 
+              </div>
+            </div>
+          </td>          
+          <td>
+            <div class="card">
+              <span>Match #50</span> 
+              <div>
+                <button (click)="round16Selected(C1,'Match 50')">
+                  <input type="text" placeholder="Winner C - C1" name="C1" disabled [(ngModel)]="C1">
+                </button><br>
+                <button (click)="round16Selected(D2,'Match 50')">
+                  <input type="text" name="D2" placeholder="RunnerUp D - D2" disabled [(ngModel)]="D2">
+                </button> 
+              </div>
+            </div>
+          </td>          
+          <td>
+            <div class="card">
+              <span>Match #51</span> 
+              <div>
+                <button (click)="round16Selected(E1,'Match 51')">
+                  <input type="text" placeholder="Winner E - E1" name="E1" disabled [(ngModel)]="E1">
+                </button><br>
+                <button (click)="round16Selected(F1,'Match 51')">
+                  <input type="text" name="F2" placeholder="RunnerUp F - F2" disabled [(ngModel)]="F2">
+                </button> 
+              </div>
+            </div>
+
+          </td>
+          <td>
+            <div class="card">
+              <span>Match #52</span> 
+              <div>
+                <button (click)="round16Selected(G1,'Match 52')">
+                  <input type="text" placeholder="Winner G - G1" name="G1" disabled [(ngModel)]="G1">
+                </button><br>
+                <button (click)="round16Selected(H2,'Match 52')">
+                  <input type="text" name="H2" placeholder="RunnerUp H - H2" disabled [(ngModel)]="H2">
+                </button> 
+              </div>
+            </div>
+          </td>
+        </tr>
+
+<hr>
+        <tr>
+
+          <td>
+            <div class="card">
+              <span>Match #53</span> 
+              <div>
+                <button (click)="round16Selected(B1,'Match 53')">
+                  <input type="text" placeholder="Winner B - B1" name="B1" disabled [(ngModel)]="B1">
+                </button><br>
+                <button (click)="round16Selected(A2,'Match 53')">
+                  <input type="text" name="A2" placeholder="RunnerUp A - A2" disabled [(ngModel)]="A2">
+                </button> 
+              </div>
+            </div>
+          </td>
+
+          <td>     
+            <div class="card">
+              <span>Match #54</span> 
+              <div>
+                <button (click)="round16Selected(D1,'Match 54')">
+                  <input type="text" placeholder="Winner D - D1" name="D1" disabled [(ngModel)]="D1">
+                </button><br>
+                <button (click)="round16Selected(C2,'Match 54')">
+                  <input type="text" name="C2" placeholder="RunnerUp C - C2" disabled [(ngModel)]="C2">
+                </button> 
+              </div>
+            </div>
+          </td>
+          <td>
+            <div class="card">
+              <span>Match #55</span> 
+              <div>
+                <button (click)="round16Selected(F1,'Match 55')">
+                  <input type="text" placeholder="Winner F - F1" name="F1" disabled [(ngModel)]="F1">
+                </button><br>
+                <button (click)="round16Selected(E2,'Match 55')">
+                  <input type="text" name="E2" placeholder="RunnerUp E - E2" disabled [(ngModel)]="E2">
+                </button> 
+              </div>
+            </div>          
+          </td>
+
+
+          <td>
+            <div class="card">
+              <span>Match #56</span> 
+              <div>
+                <button (click)="round16Selected(H1,'Match 56')">
+                  <input type="text" placeholder="Winner H - H1" name="H1" disabled [(ngModel)]="H1">
+                </button><br>
+                <button (click)="round16Selected(G2,'Match 56')">
+                  <input type="text" name="G2" placeholder="RunnerUp G - G2" disabled [(ngModel)]="F2">
+                </button> 
+              </div>
+            </div>          
+          </td>
+        </tr>
+      </table>
+
+
+
+    </div>
+
+  </div>
 </div>
-<div class="card">
-  <div class="card-header">
-    Round of 16
-  </div>
-  <div class="card-body">
-    <table>
-      <tr>
-        <td>
-          <div class="card">
-            <span>Match #49</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner A - A1" name="A1" disabled [(ngModel)]="A1">
-              </button><br>
-              <button>
-                <input type="text" name="B2" placeholder="RunnerUp B - B2" disabled [(ngModel)]="B2">
-              </button> 
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="card">
-            <span>Match #53</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner B - B1" name="B1" disabled [(ngModel)]="B1">
-              </button><br>
-              <button>
-                <input type="text" name="A2" placeholder="RunnerUp A - A2" disabled [(ngModel)]="A2">
-              </button> 
-            </div>
-          </div>
 
-        </td>
-      </tr>
+<div class="card-container">
+  <Div class="card">
+    <div class="card-header">
+      Proudly Submit Bracket (then trash talk!)
+    </div>
+    Enter Name: <input type="text" id="theName"><br>
+    Enter Phone: <input type="tel" id="thePhone"><br>
+    Enter Email: <input type="email" id="theEmail"> 
+    <div class="card-body">
+      <button class="btn btn-info" (click)="submitRoundOf16()">Submit Bracket #1 : Round of 16 teams</button>
 
 
-      <tr>
-        <td>
-          <div class="card">
-            <span>Match #50</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner C - C1" name="C1" disabled [(ngModel)]="C1">
-              </button><br>
-              <button>
-                <input type="text" name="D2" placeholder="RunnerUp D - D2" disabled [(ngModel)]="D2">
-              </button> 
-            </div>
-          </div>
-
-        </td>
-        <td>     
-          <div class="card">
-            <span>Match #54</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner D - D1" name="D1" disabled [(ngModel)]="D1">
-              </button><br>
-              <button>
-                <input type="text" name="C2" placeholder="RunnerUp C - C2" disabled [(ngModel)]="C2">
-              </button> 
-            </div>
-          </div>
-        </td>
-      </tr>
-
-
-      <tr>
-        <td>
-          <div class="card">
-            <span>Match #51</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner E - E1" name="E1" disabled [(ngModel)]="E1">
-              </button><br>
-              <button>
-                <input type="text" name="F2" placeholder="RunnerUp F - F2" disabled [(ngModel)]="F2">
-              </button> 
-            </div>
-          </div>
-
-        </td>
-        <td>
-          <div class="card">
-            <span>Match #55</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner F - F1" name="F1" disabled [(ngModel)]="F1">
-              </button><br>
-              <button>
-                <input type="text" name="E2" placeholder="RunnerUp E - E2" disabled [(ngModel)]="E2">
-              </button> 
-            </div>
-          </div>          
-        </td>
-      </tr>
-
-
-      <tr>
-        <td>
-          <div class="card">
-            <span>Match #52</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner G - G1" name="G1" disabled [(ngModel)]="G1">
-              </button><br>
-              <button>
-                <input type="text" name="H2" placeholder="RunnerUp H - H2" disabled [(ngModel)]="H2">
-              </button> 
-            </div>
-          </div>
-        </td>
-        <td>
-          <div class="card">
-            <span>Match #56</span> 
-            <div>
-              <button>
-                <input type="text" placeholder="Winner H - H1" name="H1" disabled [(ngModel)]="H1">
-              </button><br>
-              <button>
-                <input type="text" name="G2" placeholder="RunnerUp G - G2" disabled [(ngModel)]="F2">
-              </button> 
-            </div>
-          </div>          
-        </td>
-      </tr>
-    </table>
-
-
-
-  </div>
+    </div>
+  </Div>
 
 </div>

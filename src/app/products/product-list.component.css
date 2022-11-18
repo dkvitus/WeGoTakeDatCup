@@ -15,7 +15,7 @@ thead {
     border: 1px solid #eee;
     background-color: #fafafa;
     /* height: 40px; */
-    width: 20%;
+    width: 40%;
     margin: 0 8px 16px;
     padding: 16px;
     display: flex;
@@ -38,8 +38,16 @@ thead {
     align-items: center;
     width: 100%;
   }
-  .button1 {
+  button, .button1 {
     width: 100%;
     display: flex;
     align-items: center;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+  }
+  table{
+    align-items: center;
+    align-self: center;
+    align-content: center;
   }

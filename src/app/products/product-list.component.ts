@@ -14,6 +14,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   showImage = false;
   errorMessage = '';
   sub!: Subscription;
+  isSelectGroupWinners = false;
+  isSelectGroupRunnersUp = false;
   A1=""; A2="";
   B1=""; B2="";
   C1=""; C2="";
@@ -754,9 +756,91 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.pageTitle = 'Product List: ' + message;
   }
 
-  teamSelected(theTeam:string, theGroup:string): void {
+  
+  teamSelected(theTeam:string, theGroup:string, theID:string): void {
+    let selectedPosition = '';
+    let selectedVariable = '';
 
-    console.log(theTeam + ' is clicked from '+ theGroup);
-    alert(theTeam + ' is clicked from '+ theGroup);
+    if(this.isSelectGroupWinners){
+      selectedPosition = 'WINNER'
+      selectedVariable = theGroup+'1'
+    }
+    else {
+      selectedPosition = 'RUNNER-UP'
+      selectedVariable = theGroup+'2'
+    }
+
+    console.log(theTeam + ' is '+selectedPosition+' from '+ theGroup);
+    alert("Selection " + selectedVariable + " : "+theTeam + ' is '+selectedPosition+' from '+ theGroup);
+    
+    switch(selectedVariable){
+      case 'A1':
+        this.A1 = theTeam;
+        break;
+      case 'B1':
+        this.B1 = theTeam;
+        break;
+      case 'C1':
+        this.C1 = theTeam;
+        break;
+      case 'D1':
+        this.D1 = theTeam;
+        break;  
+      case 'E1':
+        this.E1 = theTeam;
+        break;
+      case 'F1':
+        this.F1 = theTeam;
+        break;
+      case 'G1':
+        this.G1 = theTeam;
+        break;
+      case 'H1':
+        this.H1 = theTeam;
+        break; 
+        case 'A2':
+        this.A2 = theTeam;
+        break;
+      case 'B2':
+        this.B2 = theTeam;
+        break;
+      case 'C2':
+        this.C2 = theTeam;
+        break;
+      case 'D2':
+        this.D2 = theTeam;
+        break;  
+      case 'E2':
+        this.E2 = theTeam;
+        break;
+      case 'F2':
+        this.F2 = theTeam;
+        break;
+      case 'G2':
+        this.G2 = theTeam;
+        break;
+      case 'H2':
+        this.H2 = theTeam;
+        break; 
+    }
+
+    // document.getElementById(theID).disabled = true;
+
+  }
+  round16Selected(theWinner:string, theMatch:string):void{
+    console.log(theWinner + ' is clicked from '+ theMatch);
+    alert(theWinner + ' is clicked from '+ theMatch);
+
+  }
+  selectGroupWinners():void{
+    this.isSelectGroupWinners = true;
+    this.isSelectGroupRunnersUp = false;
+  }
+  selectGroupRunnersUp():void{
+    this.isSelectGroupWinners = false;
+    this.isSelectGroupRunnersUp = true;
+  }
+  submitRoundOf16():void{
+    
   }
 }
