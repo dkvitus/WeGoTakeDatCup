@@ -765,7 +765,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       selectedPosition = 'WINNER'
       selectedVariable = theGroup+'1'
     }
-    else {
+    else if (this.isSelectGroupRunnersUp){
       selectedPosition = 'RUNNER-UP'
       selectedVariable = theGroup+'2'
     }
@@ -823,8 +823,6 @@ export class ProductListComponent implements OnInit, OnDestroy {
         this.H2 = theTeam;
         break; 
     }
-
-    // document.getElementById(theID).disabled = true;
 
   }
   round16Selected(theWinner:string, theMatch:string):void{
