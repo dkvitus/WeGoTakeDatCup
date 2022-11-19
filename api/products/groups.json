@@ -1,0 +1,42 @@
+[
+    {
+      "groupId": 1,
+      "groupName": "Group A",
+      "groupCode": "A"
+    },
+    {
+        "groupId": 2,
+        "groupName": "Group B",
+        "groupCode": "B"
+      },
+      {
+        "groupId": 3,
+        "groupName": "Group C",
+        "groupCode": "C"
+      },
+      {
+        "groupId": 4,
+        "groupName": "Group D",
+        "groupCode": "D"
+      },
+      {
+        "groupId": 5,
+        "groupName": "Group E",
+        "groupCode": "E"
+      },
+      {
+        "groupId": 6,
+        "groupName": "Group F",
+        "groupCode": "F"
+      },
+      {
+        "groupId": 7,
+        "groupName": "Group G",
+        "groupCode": "G"
+      },
+      {
+        "groupId": 8,
+        "groupName": "Group H",
+        "groupCode": "H"
+      }
+    ]
