@@ -4,7 +4,7 @@ import { Component } from "@angular/core";
   selector: 'pm-root',
   template: `
     <nav class='navbar navbar-expand navbar-light bg-light'>
-        <a class='navbar-brand'>{{pageTitle}}</a>
+        <!-- <a class='navbar-brand'>{{pageTitle}}</a> -->
         <ul class='nav nav-pills'>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/welcome'>Home</a></li>
           <li><a class='nav-link' routerLinkActive='active' routerLink='/products'>Bracket #1</a></li>
@@ -18,5 +18,5 @@ import { Component } from "@angular/core";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'World Cup Brackets Challenge';
+  pageTitle = 'Take Dat Cup';
 }
