@@ -9,7 +9,9 @@ import { ProductService } from "./product.service";
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit, OnDestroy {
-  pageTitle = 'Group Stage';
+  bracket1 = 'Bracket #1: Group Stage';
+  bracket2 = 'Bracket #2: Knockout Stages (Round of 16 & Quarter Finals)';
+  bracket3 = 'Bracket #3: Final Stages (Semis, 3rd Position & Finals)';
   imageWidth = 50;
   imageMargin = 2;
   showImage = false;
@@ -17,14 +19,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   isSelectGroupWinners = false;
   isSelectGroupRunnersUp = false;
-  A1=""; A2="";
-  B1=""; B2="";
-  C1=""; C2="";
-  D1=""; D2="";
-  E1=""; E2="";
-  F1=""; F2="";
-  G1=""; G2="";
-  H1=""; H2="";
+  A1="A1"; A2="A2";
+  B1="B1"; B2="B2";
+  C1="C1"; C2="C2";
+  D1="D1"; D2="D2";
+  E1="E1"; E2="E2";
+  F1="F1"; F2="F2";
+  G1="G1"; G2="G2";
+  H1="H1"; H2="H2";
 
   W49=""; W50="";
   W51=""; W52="";
@@ -798,7 +800,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
 
   onRatingClicked(message: string): void {
-    this.pageTitle = 'Product List: ' + message;
+    // this.pageTitle = 'Product List: ' + message;
   }
 
   
@@ -884,7 +886,58 @@ export class ProductListComponent implements OnInit, OnDestroy {
         break; 
     }
 
+    //Check group winners and runners up
+    this.checkGroupSelection();
+
   }
+
+  checkGroupSelection():void{
+    if(this.A1===this.A2){
+      console.log("Please select different teams as winners and runners up for Group A")
+      alert("Please select different teams as winners and runners up for Group A");
+    }
+    else if(this.B1===this.B2){
+      console.log("Please select different teams as winners and runners up for Group B")
+      alert("Please select different teams as winners and runners up for Group B")
+    }
+    else if(this.C1===this.C2){
+      console.log("Please select different teams as winners and runners up for Group C")
+      alert("Please select different teams as winners and runners up for Group C")
+    }
+    else if(this.D1===this.D2){
+      console.log("Please select different teams as winners and runners up for Group D")
+      alert("Please select different teams as winners and runners up for Group D")
+    }
+    else if(this.E1===this.E2){
+      console.log("Please select different teams as winners and runners up for Group E")
+      alert("Please select different teams as winners and runners up for Group E")
+    }
+    else if(this.F1===this.F2){
+      console.log("Please select different teams as winners and runners up for Group F")
+      alert("Please select different teams as winners and runners up for Group F")
+    }
+    else if(this.G1===this.G2){
+      console.log("Please select different teams as winners and runners up for Group G")
+      alert("Please select different teams as winners and runners up for Group G")
+    }
+    else if(this.H1===this.H2){
+      console.log("Please select different teams as winners and runners up for Group H")
+      alert("Please select different teams as winners and runners up for Group H")
+    }
+
+  }
+
+  thirdPosition(team1:string, team2:string, teamWin:string):string{
+    if(teamWin==team1){
+      // alert("Winner: "+team1+"\nLoser: "+team2);
+      return team2; 
+    }
+    else {
+      // alert("Winner: "+team2+"\nLoser: "+team1)
+      return team1;
+    }
+  }
+
   round16Selected(theWinner:string, theMatch:string):void{
     console.log(theWinner + ' is clicked from '+ theMatch);
     alert(theWinner + ' is clicked from '+ theMatch);

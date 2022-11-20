@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    {{pageTitle}}
+    {{bracket1}}
   </div>
 
 <!--   <div class='card-body'>
@@ -71,292 +71,407 @@
      class='alert alert-danger'>
   Error: {{ errorMessage }}
 </div> -->
-<hr>
-<div class="card-container">
-  <div *ngFor="let group of groups" class="card">
-    <div class="card-medium-header">
-      {{group.groupCode}}
+  <hr>
+  <div class="card-container">
+    <div *ngFor="let group of groups" class="card">
+      <div class="card-medium-header">
+        {{group.groupCode}}
 
-    </div>
-    <div class="card-body">
-      <div *ngFor="let num of [1,2,3,4]">          
-        <div *ngFor="let team of teams">
-          
-          <div *ngIf="team.teamGroupID==group.groupID">
-              <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num); teamClicked();" value="{{team.teamName}};" [ngClass]="{'btn btn-success':isGreen}">
-                <span *ngIf="isWinner" [(ngModel)]="Num1">  </span>
-                <span *ngIf="isRunnerUp" [(ngModel)]="Num2">  </span>
-                
-                <!-- <mat-button-toggle-group #toggleBtn="matButtonToggleGroup">
-                  <mat-button-toggle value="Toggle Button 1">1</mat-button-toggle>
-                  <mat-button-toggle value="Toggle Button 2">2</mat-button-toggle>
-              </mat-button-toggle-group> -->
+      </div>
+      <div class="card-body">
+        <div *ngFor="let num of [1,2,3,4]">          
+          <div *ngFor="let team of teams">
+            
+            <div *ngIf="team.teamGroupID==group.groupID">
+                <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num); teamClicked();" value="{{team.teamName}};" [ngClass]="{'btn btn-success':isGreen}">
+                  <span *ngIf="isWinner" [(ngModel)]="Num1">  </span>
+                  <span *ngIf="isRunnerUp" [(ngModel)]="Num2">  </span>
+                  
+                  <!-- <mat-button-toggle-group #toggleBtn="matButtonToggleGroup">
+                    <mat-button-toggle value="Toggle Button 1">1</mat-button-toggle>
+                    <mat-button-toggle value="Toggle Button 2">2</mat-button-toggle>
+                </mat-button-toggle-group> -->
 
-              <button>
-                  <span class="fi fi-{{team.teamISO | lowercase}}"></span>
-                  {{team.teamName}}                 
-                  {{isWinner ? '1': null }}
-                  {{isRunnerUp? '2' : null}} 
+                <button>
+                    <span class="fi fi-{{team.teamISO | lowercase}}"></span>
+                    {{team.teamName}}                 
+                    {{isWinner ? '1': null }}
+                    {{isRunnerUp? '2' : null}} 
+                  </button>
+                            
+                  
                 </button>
-                           
-                
-              </button>
+            </div>
+          </div>                
+        </div>
+      </div>
+    </div>
+
+    <!--
+    Actions 1 and 2
+    Selecting group winners and 2nd place
+  -->
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <button class="btn btn-success" (click)="selectGroupWinners()" ><mat-icon>looks_one</mat-icon> Select Group Winners</button>
           </div>
-        </div>                
+          <div class="card-body">
+              Click the green button then select the group winners.
+          </div>
+
+        </div>
+
+      </div>
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <button class="btn btn-warning" (click)="selectGroupRunnersUp()"><mat-icon>looks_two</mat-icon> Select Group Runners Up</button>
+          </div>
+          <div class="card-body">
+              Click the yellow button then select the group runners up.
+
+          </div>
+
+        </div>
+      </div>
+
+      <div  class="card-container">
+        <div class="card ">
+          <div class="card-medium-header">  Group A Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{A1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{A2}}</button>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group B Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{B1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{B2}}</button>
+          </div>    </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group C Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{C1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{C2}}</button>
+          </div>    </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group D Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{D1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{D2}}</button>
+          </div>    
+        </div>
+        <div class="card ">
+        <div class="card-medium-header">  Group E Qualified</div>
+        <div class="card-body"> 
+          <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{E1}}</button>
+          <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{E2}}</button>
+        </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group F Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{F1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{F2}}</button>
+          </div>    </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group G Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{G1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{G2}}</button>
+          </div>    </div>
+        <div class="card ">
+          <div class="card-medium-header">  Group H Qualified</div>
+          <div class="card-body"> 
+            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{H1}}</button>
+            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{H2}}</button>
+          </div>    
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="row">
 
-<div class="card-container">
-    <div class="card ">
-      <div class="card-medium-header">  Group A Qualified</div>
-      <div class="card-body"> 
-        <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{A1}}</button>
-        <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{A2}}</button>
-      </div>
-    </div>
-    <div class="card ">
-      <div class="card-medium-header">  Group B Qualified</div>
-      <div class="card-body"> 
-        <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{B1}}</button>
-        <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{B2}}</button>
-      </div>    </div>
-    <div class="card ">
-      <div class="card-medium-header">  Group C Qualified</div>
-      <div class="card-body"> 
-        <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{C1}}</button>
-        <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{C2}}</button>
-      </div>    </div>
-    <div class="card ">
-      <div class="card-medium-header">  Group D Qualified</div>
-      <div class="card-body"> 
-        <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{D1}}</button>
-        <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{D2}}</button>
-      </div>    
-    </div>
-    <div class="card ">
-    <div class="card-medium-header">  Group E Qualified</div>
-    <div class="card-body"> 
-      <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{E1}}</button>
-      <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{E2}}</button>
-    </div>
-  </div>
-  <div class="card ">
-    <div class="card-medium-header">  Group F Qualified</div>
-    <div class="card-body"> 
-      <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{F1}}</button>
-      <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{F2}}</button>
-    </div>    </div>
-  <div class="card ">
-    <div class="card-medium-header">  Group G Qualified</div>
-    <div class="card-body"> 
-      <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{G1}}</button>
-      <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{G2}}</button>
-    </div>    </div>
-  <div class="card ">
-    <div class="card-medium-header">  Group H Qualified</div>
-    <div class="card-body"> 
-      <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{H1}}</button>
-      <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{H2}}</button>
-    </div>    
+
   </div>
 
 </div>
-  </div>
 
-
-
-</div>
-
-</div>
-<!--
-  Actions 1 and 2
-  Selecting group winners and 2nd place
--->
-<div class="card-container">
-
-  <div class="card">
-    <div class="card-header">
-       1: 
-    </div>
-    <div class="card-body">
-      <button class="btn btn-success" (click)="selectGroupWinners()" > Select Group Winners</button>
-      <p>
-        Click the green button then select the group winners.
-      </p>
-      {{A1}} {{B1}} {{C1}} {{D1}} {{E1}} {{F1}} {{G1}} {{H1}}
-    </div>
-
-  </div>
-  <div class="card">
-    <div class="card-header">
-       2: 
-    </div>
-    <div class="card-body">
-      <button class="btn btn-warning" (click)="selectGroupRunnersUp()"> Select Group Runners Up</button>
-      <p>
-        Click the yellow button then select the group runners up.
-      </p>
-      {{A2}} {{B2}} {{C2}} {{D2}} {{E2}} {{F2}} {{G2}} {{H2}}
-
-    </div>
-
-  </div>
-</div>
 <!--
   Round of 16
 -->
-<div class="card-container">
-
   <div class="card">
-    <div class="card-header">
-      Round of 16
+    <div class="card-header">{{bracket2}}    
     </div>
     <div class="card-body">
-      <table >
-        <tr>
-          <td>
-            <div class="card">
+      <div class="row">
+
+            <div class="card col-3">
               <div class="card-medium-header">Match #49</div> 
-              <div>
-                <button (click)="round16Selected(A1,'Match 49')">
-                  <input type="text" placeholder="Winner A - A1" name="A1" disabled [(ngModel)]="A1">
-                
-                </button><br>
-                <button (click)="round16Selected(B2,'Match 49')">
-                  <input type="text" name="B2" placeholder="RunnerUp B - B2" disabled [(ngModel)]="B2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle49="matButtonToggleGroup">
+                  <mat-button-toggle value={{A1}} >
+                    {{A1===""?"A1":A1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{B2}} >
+                    {{B2===""?"B2":B2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
             </div>
-          </td>          
-          <td>
-            <div class="card">
+            <div class="card col-3">
               <div class="card-medium-header">Match #50</div> 
-              <div>
-                <button (click)="round16Selected(C1,'Match 50')">
-                  <input type="text" placeholder="Winner C - C1" name="C1" disabled [(ngModel)]="C1">
-                </button><br>
-                <button (click)="round16Selected(D2,'Match 50')">
-                  <input type="text" name="D2" placeholder="RunnerUp D - D2" disabled [(ngModel)]="D2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle50="matButtonToggleGroup">
+                  <mat-button-toggle value={{C1}} >
+                    {{C1===""?"C1":C1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{D2}} >
+                    {{D2===""?"D2":D2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
             </div>
-          </td>          
-          <td>
-            <div class="card">
+            <div class="card col-3">
               <div class="card-medium-header">Match #51</div> 
-              <div>
-                <button (click)="round16Selected(E1,'Match 51')">
-                  <input type="text" placeholder="Winner E - E1" name="E1" disabled [(ngModel)]="E1">
-                </button><br>
-                <button (click)="round16Selected(F1,'Match 51')">
-                  <input type="text" name="F2" placeholder="RunnerUp F - F2" disabled [(ngModel)]="F2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle51="matButtonToggleGroup">
+                  <mat-button-toggle value={{E1}} >
+                    {{E1===""?"E1":E1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{F2}} >
+                    {{F2===""?"F2":F2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
             </div>
-
-          </td>
-          <td>
-            <div class="card">
+            <div class="card col-3">
               <div class="card-medium-header">Match #52</div> 
-              <div>
-                <button (click)="round16Selected(G1,'Match 52')">
-                  <input type="text" placeholder="Winner G - G1" name="G1" disabled [(ngModel)]="G1">
-                </button><br>
-                <button (click)="round16Selected(H2,'Match 52')">
-                  <input type="text" name="H2" placeholder="RunnerUp H - H2" disabled [(ngModel)]="H2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle52="matButtonToggleGroup">
+                  <mat-button-toggle value={{G1}} >
+                    {{G1===""?"G1":G1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{H2}} >
+                    {{H2===""?"H2":H2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
+
             </div>
-          </td>
-        </tr>
+      </div>
+      <div class="row">
 
-<hr>
-        <tr>
-
-          <td>
-            <div class="card">
+              <div class="card col-3">
               <div class="card-medium-header">Match #53</div> 
-              <div>
-                <button (click)="round16Selected(B1,'Match 53')">
-                  <input type="text" placeholder="Winner B - B1" name="B1" disabled [(ngModel)]="B1">
-                </button><br>
-                <button (click)="round16Selected(A2,'Match 53')">
-                  <input type="text" name="A2" placeholder="RunnerUp A - A2" disabled [(ngModel)]="A2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle53="matButtonToggleGroup">
+                  <mat-button-toggle value={{B1}} >
+                    {{B1===""?"B1":B1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{A2}} >
+                    {{A2===""?"A2":A2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
             </div>
-          </td>
-
-          <td>     
-            <div class="card">
+            <div class="card col-3">
               <div class="card-medium-header">Match #54</div> 
-              <div>
-                <button (click)="round16Selected(D1,'Match 54')">
-                  <input type="text" placeholder="Winner D - D1" name="D1" disabled [(ngModel)]="D1">
-                </button><br>
-                <button (click)="round16Selected(C2,'Match 54')">
-                  <input type="text" name="C2" placeholder="RunnerUp C - C2" disabled [(ngModel)]="C2">
-                </button> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle54="matButtonToggleGroup">
+                  <mat-button-toggle value={{D1}} >
+                    {{D1===""?"D1":D1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{C2}}>
+                    {{C2===""?"C2":C2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
               </div>
             </div>
-          </td>
-          <td>
-            <div class="card">
+            <div class="card col-3">
               <div class="card-medium-header">Match #55</div> 
-              <div>
-                <button (click)="round16Selected(F1,'Match 55')">
-                  <input type="text" placeholder="Winner F - F1" name="F1" disabled [(ngModel)]="F1">
-                </button><br>
-                <button (click)="round16Selected(E2,'Match 55')">
-                  <input type="text" name="E2" placeholder="RunnerUp E - E2" disabled [(ngModel)]="E2">
-                </button> 
-              </div>
-            </div>          
-          </td>
-
-
-          <td>
-            <div class="card">
-              <div class="card-medium-header">Match #56</div> 
-              <div>
-                <button (click)="round16Selected(H1,'Match 56')">
-                  <input type="text" placeholder="Winner H - H1" name="H1" disabled [(ngModel)]="H1">
-                </button><br>
-                <button (click)="round16Selected(G2,'Match 56')">
-                  <input type="text" name="G2" placeholder="RunnerUp G - G2" disabled [(ngModel)]="G2">
-                </button> 
-
-                <mat-button-toggle-group #toggle56="matButtonToggleGroup">
-                  <mat-button-toggle value={{H1}} >{{H1}}</mat-button-toggle>
-                  <mat-button-toggle value={{G2}} >{{G2}}</mat-button-toggle>
+              <div class="card-container">
+                <mat-button-toggle-group #toggle55="matButtonToggleGroup">
+                  <mat-button-toggle value={{F1}} >
+                    {{F1===""?"F1":F1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{E2}}>
+                    {{E2===""?"E2":E2}}
+                  </mat-button-toggle>
               </mat-button-toggle-group>
               </div>
             </div>          
-          </td>
-        </tr>
-      </table>
-
-
+            <div class="card col-3">
+              <div class="card-medium-header">Match #56</div> 
+              <div class="card-container">
+                <mat-button-toggle-group #toggle56="matButtonToggleGroup">
+                  <mat-button-toggle value={{H1}} >
+                    {{H1===""?"H1":H1}}
+                  </mat-button-toggle> vs 
+                  <mat-button-toggle value={{G2}}>
+                    {{G2===""?"G2":G2}}
+                  </mat-button-toggle>
+              </mat-button-toggle-group>
+              </div>
+            </div> 
+      </div>
 
     </div>
 
+  <div  class="card-container">
+    <div class="card ">
+      <div class="card-header"><button class="btn btn-primary" (click)="selectRound16Winners()"><mat-icon>looks_3</mat-icon> Select Round of 16 Match Winners</button>
+      </div> 
+      <div class="card-body">
+        <p>
+          Click the blue button then select the match winners.
+        </p>    
+      </div>
+    </div>
   </div>
+      <div class="card-container">
+        <div class="card ">
+          <div class="card-medium-header">  Quarter Finals #1 (QF1)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle57="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle49.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle49.value==null?"Winner #49":toggle49.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle50.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle50.value==null?"Winner #50":toggle50.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Quarter Finals #2 (QF2)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle58="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle53.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle53.value==null?"Winner #53":toggle53.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle54.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle54.value==null?"Winner #54":toggle54.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Quarter Finals #3 (QF3)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle59="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle51.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle51.value==null?"Winner #51":toggle51.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle52.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle52.value==null?"Winner #52":toggle52.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Quarter Finals #4 (QF4)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle60="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle55.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle55.value==null?"Winner #55":toggle55.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle56.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle56.value==null?"Winner #56":toggle56.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+      </div>      
+
+
+  </div>
+
   <div class="card">
-    <div class="card-header">3:</div> 
+    <div class="card-header">{{bracket3}}    
+    </div>
     <div class="card-body">
-      <button class="btn btn-warning" (click)="selectRound16Winners()"> Select Round of 16 Match Winners</button>
-      <p>
-        Click the yellow button then select the group runners up.
-      </p>
-      {{W49}} {{W50}} {{W51}} {{W52}} {{W53}} {{W54}} {{W55}} {{W56}}
+      <div class="card-container">
+        <div class="card ">
+          <div class="card-medium-header">  Semi Finals #1 (SF1)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle61="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle57.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle57.value==null?"Winner QF1":toggle57.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle58.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle58.value==null?"Winner QF2":toggle58.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-medium-header">  Semi Finals #2 (SF2)</div>
+          <div class="card-body"> 
+            <div>
+              <mat-button-toggle-group #toggle62="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle59.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle59.value==null?"Winner QF3":toggle59.value}}</mat-button-toggle> 
+                  vs 
+                  <mat-button-toggle value={{toggle60.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                    {{toggle60.value==null?"Winner QF4":toggle60.value}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-container">
+        <div class="card ">
+          <div class="card-medium-header">  Third Position </div>
+          <div class="card-body"> 
+            <div >
+              <mat-button-toggle-group #toggle63="matButtonToggleGroup">
+                <mat-button-toggle value={{toggle61.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle61.value==null?"Loser SF1":thirdPosition(toggle57.value, toggle58.value, toggle61.value)}}</mat-button-toggle> 
+                  vs 
+                <mat-button-toggle value={{toggle62.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle62.value==null?"Loser SF2":thirdPosition(toggle59.value, toggle60.value, toggle62.value)}}</mat-button-toggle> 
+              </mat-button-toggle-group>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card ">
+        <div class="card-medium-header">  FINALS </div>
+        <div class="card-body"> 
+          <div class="card-container">
+            <mat-button-toggle-group #toggle64="matButtonToggleGroup">
+              <mat-button-toggle value={{toggle61.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                {{toggle61.value==null?"Winner SF1":toggle61.value}}</mat-button-toggle> 
+                vs 
+                <mat-button-toggle value={{toggle62.value}} ><mat-icon>sports_soccermat-icon</mat-icon>
+                  {{toggle62.value==null?"Winner SF2":toggle62.value}}</mat-button-toggle> 
+            </mat-button-toggle-group>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="toggle64.value" class="card">
+        <div class="card-header">
+          <h3 > WORLD CUP CHAMPIONS!!!</h3><br>
+        </div>
+        <div>
+                  <h2>{{toggle64.value}}</h2>
+                  <mat-icon>emoji_eventsmat-icon</mat-icon>
+        </div>
+
+      </div>
 
     </div>
-
   </div>
-</div>
 
 <div class="card-container">
   <Div class="card">
