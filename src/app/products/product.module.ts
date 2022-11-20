@@ -5,6 +5,10 @@ import { ConvertToSpacesPipe } from '../shared/convert-to-spaces.pipe';
 import { RouterModule } from '@angular/router';
 import { ProductDetailGuard } from './product-detail.guard';
 import { SharedModule } from '../shared/shared.module';
+import { MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -13,6 +17,9 @@ import { SharedModule } from '../shared/shared.module';
     ConvertToSpacesPipe
   ],
   imports: [
+    MatButtonModule, 
+    MatButtonToggleModule,
+    MatIconModule,
     RouterModule.forChild([
       { path: 'products', component: ProductListComponent },
       {

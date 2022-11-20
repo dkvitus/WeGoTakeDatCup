@@ -8,6 +8,10 @@ import { RouterModule } from '@angular/router';
 import { ProductModule } from './products/product.module';
 import { GroupsComponent } from './groups/groups.component';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,12 +21,14 @@ import { GroupsComponent } from './groups/groups.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MatButtonToggleModule,
     RouterModule.forRoot([
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    ProductModule
+    ProductModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent]
 })

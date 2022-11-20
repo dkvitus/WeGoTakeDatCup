@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit, ViewChild, ElementRef, Renderer2, Input } from "@angular/core";
 import { Subscription } from "rxjs";
 import { IProduct } from "./product";
 import { ProductService } from "./product.service";
+
 
 @Component({
   templateUrl: './product-list.component.html',
@@ -24,6 +25,18 @@ export class ProductListComponent implements OnInit, OnDestroy {
   F1=""; F2="";
   G1=""; G2="";
   H1=""; H2="";
+
+  W49=""; W50="";
+  W51=""; W52="";
+  W53=""; W54="";
+  W55=""; W56="";
+
+  btnColor = "gray";
+  isGreen = false;
+  isWinner = false;
+  isRunnerUp = false;
+  Num1 = 1;
+  Num2 = 2;
 
 
   teams = [
@@ -792,22 +805,37 @@ export class ProductListComponent implements OnInit, OnDestroy {
   teamSelected(theTeam:string, theGroup:string, theID:string): void {
     let selectedPosition = '';
     let selectedVariable = '';
+    
+    const theButton = document.getElementById(theID);
 
     if(this.isSelectGroupWinners){
-      selectedPosition = 'WINNER'
-      selectedVariable = theGroup+'1'
+      selectedPosition = 'WINNER';
+      selectedVariable = theGroup+'1';
+      // this.btnColor = 'green';
+      // this.isGreen = true;
+      
+      // const button = document.getElementById(theID);
+      // button!.setAttribute("backgroud-color", "green");
+      // button!.setAttribute("disabled", "");  
+
     }
     else if (this.isSelectGroupRunnersUp){
-      selectedPosition = 'RUNNER-UP'
-      selectedVariable = theGroup+'2'
+      selectedPosition = 'RUNNER-UP';
+      selectedVariable = theGroup+'2';
+      //this.btnColor = 'yellow';
     }
 
+
+
     console.log(theTeam + ' is '+selectedPosition+' from '+ theGroup);
+    console.log();
+    console.log("The button ID is: "+theID)
     //alert("Selection " + selectedVariable + " : "+theTeam + ' is '+selectedPosition+' from '+ theGroup);
     
     switch(selectedVariable){
       case 'A1':
         this.A1 = theTeam;
+        
         break;
       case 'B1':
         this.B1 = theTeam;
@@ -872,5 +900,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   submitRoundOf16():void{
     
+  }
+  selectRound16Winners():void{
+
+  }
+  teamClicked():void{
+
   }
 }
