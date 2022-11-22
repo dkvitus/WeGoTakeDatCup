@@ -960,4 +960,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
   teamClicked():void{
 
   }
+  finalClick(final1:string, final2:string, final3:string, final4:string){
+    console.log("Winner: "+ final1);
+    console.log("Second: "+ final2);
+    console.log("Third: "+ final3);
+    console.log("Fourth: "+ final4);
+
+  }
 }

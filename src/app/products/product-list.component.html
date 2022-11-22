@@ -477,7 +477,7 @@
         <div class="card-header">
           <h3 > WORLD CUP CHAMPIONS!!!</h3><br>
         </div>
-        <div>
+        <div class="card-container">
                   <h2>{{toggle64.value}}</h2>
                   <mat-icon>emoji_eventsmat-icon</mat-icon>
         </div>
@@ -506,7 +506,7 @@
         <input type="hidden" name="_honeypot" value="">
         <input type="hidden" name="_confirmation" value="">
         <p>
-          <input type="submit" value="Send">
+          <input type="submit" value="Send" (click)="finalClick(toggle64.value, toggle63.value, toggle62.value, toggle61.value)">
         </p>
       </form>
 
