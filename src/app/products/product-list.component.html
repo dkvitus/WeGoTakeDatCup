@@ -112,7 +112,7 @@
     Selecting group winners and 2nd place
   -->
     <div class="row">
-      <!-- <div class="col"> -->
+      <div class="card-container">
         <div class="card">
           <div class="card-header">
             <button class="btn btn-success" (click)="selectGroupWinners()" ><mat-icon>looks_one</mat-icon> Select Group Winners</button>
@@ -122,9 +122,9 @@
           </div>
 
         </div>
-<!-- 
+
       </div>
-      <div class="col"> -->
+      <div class="card-container"> 
         <div class="card">
           <div class="card-header">
             <button class="btn btn-warning" (click)="selectGroupRunnersUp()"><mat-icon>looks_two</mat-icon> Select Group Runners Up</button>
@@ -135,7 +135,7 @@
           </div>
 
         </div>
-      <!-- </div> -->
+      </div>
 
       <div  class="card-container">
         <div class="card ">
@@ -200,14 +200,26 @@
 </div>
 
 <!--
-  Round of 16
+  Bracket #2: Round of 16
 -->
   <div class="card">
     <div class="card-header">{{bracket2}}    
     </div>
-    <div class="card-body">
-      <div class="row">
 
+  <div  class="card-container">
+    <div class="card ">
+      <div class="card-header"><button disabled class="btn btn-primary" (click)="selectRound16Winners()"><mat-icon>looks_3</mat-icon> Select Round of 16 Match Winners</button>
+      </div> 
+      <div class="card-body">
+        <p>
+          Click each country to select as match winner.
+        </p>    
+      </div>
+    </div>
+  </div>
+
+    <div class="card-body">
+      <div class="card-container">
             <div class="card ">
               <div class="card-medium-header">Match #49</div> 
               <div class="card-container">
@@ -262,7 +274,7 @@
 
             </div>
       </div>
-      <div class="row">
+      <div class="card-container">
 
               <div class="card">
               <div class="card-medium-header">Match #53</div> 
@@ -322,11 +334,11 @@
 
   <div  class="card-container">
     <div class="card ">
-      <div class="card-header"><button class="btn btn-primary" (click)="selectRound16Winners()"><mat-icon>looks_3</mat-icon> Select Round of 16 Match Winners</button>
+      <div class="card-header"><button disabled class="btn btn-primary" (click)="selectRound16Winners()"><mat-icon>looks_4</mat-icon> Select Quarter Finals Match Winners</button>
       </div> 
       <div class="card-body">
         <p>
-          Click the blue button then select the match winners.
+          Click each country to select as match winner.
         </p>    
       </div>
     </div>
@@ -394,6 +406,7 @@
 
   </div>
 
+  <!-- Bracker # 3: Final Rounds -->
   <div class="card">
     <div class="card-header">{{bracket3}}    
     </div>
@@ -479,18 +492,30 @@
     <div class="card-header">
       Proudly Submit Bracket (then trash talk!)
     </div>
-    Enter Name: <input type="text" id="theName"><br>
-    Enter Phone: <input type="tel" id="thePhone"><br>
-    Enter Email: <input type="email" id="theEmail"> 
     <div class="card-body">
-      <button class="mat-btn" (click)="submitRoundOf16()">
-        <mat-icon>
-          looks_one
-        </mat-icon>
-        Submit Bracket #1 : Round of 16 teams
-      </button>
+      <div class="card-container">
+        <form action="https://mailthis.to/dkvitus"
+    method="POST" encType="multipart/form-data">
+        <input type="text" name="name" placeholder="Enter your name"><br>
+        <input type="email" name="_replyto" placeholder="Enter your email"><br>
+        <input type="text" name="cashApp" placeholder="Your $CashApp Handle"><br>
+        <textarea name="message" placeholder="Enter your message here"></textarea>
+        <!-- <input type="file" name="file" placeholder="Attachments (optional)"> -->
+        <input type="hidden" name="_subject" value="Contact form submitted">
+        <input type="hidden" name="_after" value="https://myhomepage.net/">
+        <input type="hidden" name="_honeypot" value="">
+        <input type="hidden" name="_confirmation" value="">
+        <p>
+          <input type="submit" value="Send">
+        </p>
+      </form>
 
-    </div>
+      </div>
+      
+
+    </div>    
+    
+
   </Div>
 
 </div>
