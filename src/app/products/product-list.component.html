@@ -1,205 +1,211 @@
-<div class='card'>
-  <div class='card-header'>
-    {{bracket1}}
-  </div>
 
-<!--   <div class='card-body'>
-    <div *ngIf='products.length<0' class='row'>
-      <div class='col-md-2'>Filter by:</div>
-      <div class='col-md-4'>
-        <input type='text'
-               [(ngModel)]='listFilter' />
+
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" color="accent" backgroundColor="accent">
+  <mat-tab label="Group Stage"> 
+    <div class='card'>
+      <div class='card-header'>
+        {{bracket1}}
       </div>
-    </div>
-    <div class='row'
-         *ngIf="listFilter">
-      <div class='col-md-6'>
-        <h4>Filtered by: {{listFilter}}</h4>
-      </div>
-    </div>
-    <div class='table-responsive'>
-      <table class='table'
-             *ngIf='products.length==0'>
-        <thead>
-          <tr>
-            <th>
-              <button class='btn btn-primary'
-                      (click)='toggleImage()'>
-                {{showImage ? 'Hide' : 'Show'}} Image
-              </button>
-            </th>
-            <th>Product</th>
-            <th>Code</th>
-            <th>Available</th>
-            <th>Price</th>
-            <th>5 Star Rating</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor='let product of filteredProducts'>
-            <td>
-              <img *ngIf='showImage'
-                   [src]='product.imageUrl'
-                   [title]='product.productName'
-                   [style.width.px]='imageWidth'
-                   [style.margin.px]='imageMargin'>
-            </td>
-            <td>
-              <a [routerLink]="['/products', product.productId]">
-                {{ product.productName }}
-              </a>
-            </td>
-            <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td>
-            <td>{{ product.releaseDate }}</td>
-            <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
-            <td>
-              <pm-star [rating]='product.starRating'
-                       (ratingClicked)='onRatingClicked($event)'>
-              </pm-star>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div *ngIf='products.length'>
-
-    </div>
-  </div>
-  
-  <div *ngIf='errorMessage'
-     class='alert alert-danger'>
-  Error: {{ errorMessage }}
-</div> -->
-  <hr>
-  <div class="card-container">
-    <div *ngFor="let group of groups" class="card">
-      <div class="card-medium-header">
-        {{group.groupCode}}
-
-      </div>
-      <div class="card-body">
-        <div *ngFor="let num of [1,2,3,4]">          
-          <div *ngFor="let team of teams">
-            
-            <div *ngIf="team.teamGroupID==group.groupID">
-                <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num); teamClicked();" value="{{team.teamName}};" [ngClass]="{'btn btn-success':isGreen}">
-                  <span *ngIf="isWinner" [(ngModel)]="Num1">  </span>
-                  <span *ngIf="isRunnerUp" [(ngModel)]="Num2">  </span>
-                  
-                  <!-- <mat-button-toggle-group #toggleBtn="matButtonToggleGroup">
-                    <mat-button-toggle value="Toggle Button 1">1</mat-button-toggle>
-                    <mat-button-toggle value="Toggle Button 2">2</mat-button-toggle>
-                </mat-button-toggle-group> -->
-
-                <button>
-                    <span class="fi fi-{{team.teamISO | lowercase}}"></span>
-                    {{team.teamName}}                 
-                    {{isWinner ? '1': null }}
-                    {{isRunnerUp? '2' : null}} 
+    
+    <!--   <div class='card-body'>
+        <div *ngIf='products.length<0' class='row'>
+          <div class='col-md-2'>Filter by:</div>
+          <div class='col-md-4'>
+            <input type='text'
+                   [(ngModel)]='listFilter' />
+          </div>
+        </div>
+        <div class='row'
+             *ngIf="listFilter">
+          <div class='col-md-6'>
+            <h4>Filtered by: {{listFilter}}</h4>
+          </div>
+        </div>
+        <div class='table-responsive'>
+          <table class='table'
+                 *ngIf='products.length==0'>
+            <thead>
+              <tr>
+                <th>
+                  <button class='btn btn-primary'
+                          (click)='toggleImage()'>
+                    {{showImage ? 'Hide' : 'Show'}} Image
                   </button>
-                            
-                  
-                </button>
-            </div>
-          </div>                
+                </th>
+                <th>Product</th>
+                <th>Code</th>
+                <th>Available</th>
+                <th>Price</th>
+                <th>5 Star Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let product of filteredProducts'>
+                <td>
+                  <img *ngIf='showImage'
+                       [src]='product.imageUrl'
+                       [title]='product.productName'
+                       [style.width.px]='imageWidth'
+                       [style.margin.px]='imageMargin'>
+                </td>
+                <td>
+                  <a [routerLink]="['/products', product.productId]">
+                    {{ product.productName }}
+                  </a>
+                </td>
+                <td>{{ product.productCode | lowercase | convertToSpaces:'-' }}</td>
+                <td>{{ product.releaseDate }}</td>
+                <td>{{ product.price | currency:'USD':'symbol':'1.2-2' }}</td>
+                <td>
+                  <pm-star [rating]='product.starRating'
+                           (ratingClicked)='onRatingClicked($event)'>
+                  </pm-star>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <div *ngIf='products.length'>
+    
         </div>
       </div>
-    </div>
-
-    <!--
-    Actions 1 and 2
-    Selecting group winners and 2nd place
-  -->
-    <div class="row">
+      
+      <div *ngIf='errorMessage'
+         class='alert alert-danger'>
+      Error: {{ errorMessage }}
+    </div> -->
+      <hr>
       <div class="card-container">
-        <div class="card">
-          <div class="card-header">
-            <button class="btn btn-success" (click)="selectGroupWinners()" ><mat-icon>looks_one</mat-icon> Select Group Winners</button>
+        <div *ngFor="let group of groups" class="card">
+          <div class="card-medium-header">
+            {{group.groupCode}}
+    
           </div>
           <div class="card-body">
-              Click the green button then select the group winners.
+            <div *ngFor="let num of [1,2,3,4]">          
+              <div *ngFor="let team of teams">
+                
+                <div *ngIf="team.teamGroupID==group.groupID">
+                    <button *ngIf="num == team.groupPosition" class="button1" id="{{group.groupCode}}+num" (click)="teamSelected(team.teamName, group.groupCode,group.groupCode+num); teamClicked();" value="{{team.teamName}};" [ngClass]="{'btn btn-success':isGreen}">
+                      <span *ngIf="isWinner" [(ngModel)]="Num1">  </span>
+                      <span *ngIf="isRunnerUp" [(ngModel)]="Num2">  </span>
+                      
+                      <!-- <mat-button-toggle-group #toggleBtn="matButtonToggleGroup">
+                        <mat-button-toggle value="Toggle Button 1">1</mat-button-toggle>
+                        <mat-button-toggle value="Toggle Button 2">2</mat-button-toggle>
+                    </mat-button-toggle-group> -->
+    
+                    <button>
+                        <span class="fi fi-{{team.teamISO | lowercase}}"></span>
+                        {{team.teamName}}                 
+                        {{isWinner ? '1': null }}
+                        {{isRunnerUp? '2' : null}} 
+                      </button>
+                                
+                      
+                    </button>
+                </div>
+              </div>                
+            </div>
           </div>
-
         </div>
-
+    
+        <!--
+        Actions 1 and 2
+        Selecting group winners and 2nd place
+      -->
+        <div class="row">
+          <div class="card-container">
+            <div class="card">
+              <div class="card-header">
+                <button class="btn btn-success" (click)="selectGroupWinners()" ><mat-icon>looks_one</mat-icon> Select Group Winners</button>
+              </div>
+              <div class="card-body">
+                  Click the green button then select the group winners.
+              </div>
+    
+            </div>
+    
+          <!-- </div> -->
+          <!-- <div class="card-container">  -->
+            <div class="card">
+              <div class="card-header">
+                <button class="btn btn-warning" (click)="selectGroupRunnersUp()"><mat-icon>looks_two</mat-icon> Select Group Runners Up</button>
+              </div>
+              <div class="card-body">
+                  Click the yellow button then select the group runners up.
+    
+              </div>
+    
+            </div>
+          </div>
+    
+          <div  class="card-container">
+            <div class="card ">
+              <div class="card-medium-header">  Group A Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{A1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{A2}}</button>
+              </div>
+            </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group B Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{B1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{B2}}</button>
+              </div>    </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group C Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{C1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{C2}}</button>
+              </div>    </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group D Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{D1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{D2}}</button>
+              </div>    
+            </div>
+            <div class="card ">
+            <div class="card-medium-header">  Group E Qualified</div>
+            <div class="card-body"> 
+              <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{E1}}</button>
+              <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{E2}}</button>
+            </div>
+            </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group F Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{F1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{F2}}</button>
+              </div>    </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group G Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{G1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{G2}}</button>
+              </div>    </div>
+            <div class="card ">
+              <div class="card-medium-header">  Group H Qualified</div>
+              <div class="card-body"> 
+                <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{H1}}</button>
+                <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{H2}}</button>
+              </div>    
+            </div>
+          </div>
+        </div>
+    
+    
+    
       </div>
-      <div class="card-container"> 
-        <div class="card">
-          <div class="card-header">
-            <button class="btn btn-warning" (click)="selectGroupRunnersUp()"><mat-icon>looks_two</mat-icon> Select Group Runners Up</button>
-          </div>
-          <div class="card-body">
-              Click the yellow button then select the group runners up.
-
-          </div>
-
-        </div>
-      </div>
-
-      <div  class="card-container">
-        <div class="card ">
-          <div class="card-medium-header">  Group A Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{A1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{A2}}</button>
-          </div>
-        </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group B Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{B1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{B2}}</button>
-          </div>    </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group C Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{C1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{C2}}</button>
-          </div>    </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group D Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{D1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{D2}}</button>
-          </div>    
-        </div>
-        <div class="card ">
-        <div class="card-medium-header">  Group E Qualified</div>
-        <div class="card-body"> 
-          <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{E1}}</button>
-          <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{E2}}</button>
-        </div>
-        </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group F Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{F1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{F2}}</button>
-          </div>    </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group G Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{G1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{G2}}</button>
-          </div>    </div>
-        <div class="card ">
-          <div class="card-medium-header">  Group H Qualified</div>
-          <div class="card-body"> 
-            <button class="mat-btn"><mat-icon>looks_one</mat-icon>{{H1}}</button>
-            <button class="mat-btn"><mat-icon>looks_two</mat-icon>{{H2}}</button>
-          </div>    
-        </div>
-      </div>
+    
     </div>
+  </mat-tab>
 
-
-
-  </div>
-
-</div>
-
-<!--
+  <mat-tab label="Knock Out Stages">
+    <!--
   Bracket #2: Round of 16
 -->
   <div class="card">
@@ -406,7 +412,10 @@
 
   </div>
 
-  <!-- Bracker # 3: Final Rounds -->
+
+  </mat-tab>
+  <mat-tab label="Final Stages">
+      <!-- Bracker # 3: Final Rounds -->
   <div class="card">
     <div class="card-header">{{bracket3}}    
     </div>
@@ -487,35 +496,41 @@
     </div>
   </div>
 
-<div class="card-container">
-  <Div class="card">
-    <div class="card-header">
-      Proudly Submit Bracket (then trash talk!)
-    </div>
-    <div class="card-body">
-      <div class="card-container">
-        <form action="https://mailthis.to/dkvitus"
-    method="POST" encType="multipart/form-data">
-        <input type="text" name="name" placeholder="Enter your name"><br>
-        <input type="email" name="_replyto" placeholder="Enter your email"><br>
-        <input type="text" name="cashApp" placeholder="Your $CashApp Handle"><br>
-        <textarea name="message" placeholder="Enter your message here"></textarea>
-        <!-- <input type="file" name="file" placeholder="Attachments (optional)"> -->
-        <input type="hidden" name="_subject" value="Contact form submitted">
-        <input type="hidden" name="_after" value="https://myhomepage.net/">
-        <input type="hidden" name="_honeypot" value="">
-        <input type="hidden" name="_confirmation" value="">
-        <p>
-          <input type="submit" value="Send" (click)="finalClick(toggle64.value, toggle63.value, toggle62.value, toggle61.value)">
-        </p>
-      </form>
 
+  <div class="card-container">
+    <Div class="card">
+      <div class="card-header">
+        Proudly Submit Bracket (then trash talk!)
       </div>
+      <div class="card-body">
+        <div class="card-container">
+          <form action="https://mailthis.to/dkvitus"
+      method="POST" encType="multipart/form-data">
+          <input type="text" name="name" placeholder="Enter your name"><br>
+          <input type="email" name="_replyto" placeholder="Enter your email"><br>
+          <input type="text" name="cashApp" placeholder="Your $CashApp Handle"><br>
+          <textarea name="message" placeholder="Enter your message here"></textarea>
+          <!-- <input type="file" name="file" placeholder="Attachments (optional)"> -->
+          <input type="hidden" name="_subject" value="Contact form submitted">
+          <input type="hidden" name="_after" value="https://myhomepage.net/">
+          <input type="hidden" name="_honeypot" value="">
+          <input type="hidden" name="_confirmation" value="">
+          <p>
+            <input type="submit" value="Send" (click)="finalClick(toggle64.value, thirdPosition(toggle61.value, toggle62.value, toggle64.value), toggle63.value, thirdPosition(toggle61.value, toggle62.value, toggle63.value))">
+          </p>
+        </form>
+  
+        </div>
+        
+  
+      </div>    
       
+  
+    </Div>
+  
+  </div>
 
-    </div>    
-    
+  </mat-tab>
+</mat-tab-group>
 
-  </Div>
 
-</div>

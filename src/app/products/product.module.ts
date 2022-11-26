@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTabsModule} from '@angular/material/tabs'
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {MatIconModule} from '@angular/material/icon';
   ],
   imports: [
     MatButtonModule, 
+    MatTabsModule,
     MatButtonToggleModule,
     MatIconModule,
     RouterModule.forChild([
