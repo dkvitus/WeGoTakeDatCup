@@ -932,9 +932,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
       // alert("Winner: "+team1+"\nLoser: "+team2);
       return team2; 
     }
+    else if(teamWin==team2){
+      return team1; 
+    }
     else {
       // alert("Winner: "+team2+"\nLoser: "+team1)
-      return team1;
+      return "Not sure";
     }
   }
 
@@ -960,11 +963,21 @@ export class ProductListComponent implements OnInit, OnDestroy {
   teamClicked():void{
 
   }
-  finalClick(final1:string, final2:string, final3:string, final4:string){
-    console.log("Winner: "+ final1);
-    console.log("Second: "+ final2);
-    console.log("Third: "+ final3);
-    console.log("Fourth: "+ final4);
+  finalClick(final1:string, final2:string, final3:string, final4:string, final5:string, final6:string, final7:string, final8:string){
+    console.log("#57 Winner: "+ final1);
+    console.log("#58 Winner: "+ final2);
+    console.log("#59 Winner: "+ final3);
+    console.log("#60 Winner: "+ final4);
+    console.log("#61 Winner: "+ final5);
+    console.log("#62 Winner: "+ final6);
+    console.log("#63 Winner: 3rd Position "+ final7);
+    console.log("#64 Winner: FINALS"+ final8);
+  }
 
+  printOut1( theInput:string){
+    console.log("Champion is " + theInput);
+  }
+  printOut3( theInput:string){
+    console.log("3rd position is " + theInput);
   }
 }
