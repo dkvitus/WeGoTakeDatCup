@@ -19,14 +19,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
   sub!: Subscription;
   isSelectGroupWinners = false;
   isSelectGroupRunnersUp = false;
-  A1="Group A Winner: A1"; A2="Group A 2nd: A2";
-  B1="Group B Winner: B1"; B2="Group B 2nd: B2";
-  C1="Group C Winner: C1"; C2="Group C 2nd: C2";
-  D1="Group D Winner: D1"; D2="Group D 2nd: D2";
-  E1="Group E Winner: E1"; E2="Group E 2nd: E2";
-  F1="Group F Winner: F1"; F2="Group F 2nd: F2";
-  G1="Group G Winner: G1"; G2="Group G 2nd: G2";
-  H1="Group H Winner: H1"; H2="Group H 2nd: H2";
+  A1="Netherlands"; A2="Senegal";
+  B1="England"; B2="USA";
+  C1="Argentina"; C2="Poland";
+  D1="France"; D2="Australia";
+  E1="Japan"; E2="Spain";
+  F1="Morocco"; F2="Croatia";
+  G1="Brazil"; G2="Switzerland";
+  H1="Portugal"; H2="South Korea";
 
   W49=""; W50="";
   W51=""; W52="";
