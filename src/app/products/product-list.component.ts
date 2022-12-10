@@ -28,8 +28,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
   G1="Brazil"; G2="Switzerland";
   H1="Portugal"; H2="South Korea";
 
-  W49=""; W50="";
-  W51=""; W52="";
+  W49="Netherlands"; W50="England";
+  W51="Argentina"; W52="";
   W53=""; W54="";
   W55=""; W56="";
 
