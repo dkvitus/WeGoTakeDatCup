@@ -1,4 +1,10 @@
 {
   "files.autoSave": "afterDelay",
-  "html.format.wrapAttributes": "force-aligned"
+  "html.format.wrapAttributes": "force-aligned",
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/2bb1322c-9d2e-47df-8cbf-804d39060b23/resourceGroups/DkWebsites/providers/Microsoft.Web/sites/WeGoTakeDatCup",
+  "appService.deploySubpath": "."
 }
